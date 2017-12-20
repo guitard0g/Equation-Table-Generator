@@ -13,7 +13,7 @@ def get_table_header(id, type):
     return header
 
 def get_table_row(result, dict):
-    result_html = '<tr><td class="tex"><span>{0}</span><img class="{1}" style="display:none;" alt="{0}" onError="this.onerror=null;"/></td><td>{2}</td><td>{3}</td><td class="tex"><span>{4}</span><img class="{5}" style="display:none;" alt="{4}" onError="this.onerror=null;"/></td><td>{6}</td><td>{7}</td><td>{8}</td></tr>'
+    result_html = '<tr><td class="tex"><span>{0}</span><img class="{1}" alt="{0}" onError="this.onerror=null;"/></td><td>{2}</td><td>{3}</td><td class="tex"><span>{4}</span><img class="{5}" alt="{4}" onError="this.onerror=null;"/></td><td>{6}</td><td>{7}</td><td>{8}</td></tr>'
     # {4} in span, {5} in img
     return result_html.format(dict[result[1]], result[1], result[3], result[4], dict[result[4]], result[4], result[6], result[7], result[8])
     # "http://www.columbia.edu/~kk3161/"+result[1]+".png"
@@ -34,9 +34,9 @@ def main():
     parser.add_argument("display_eqs",help="Path to display equation tsv file")
     args = parser.parse_args()
     anno_file = open(args.anno_file)
-    query_eqs_file = open(args.query_eqs)
+    # query_eqs_file = open(args.query_eqs)
     display_eqs_file = open(args.display_eqs)
-    # anno_file = open('results_small.anno')
+    # anno_file = open('sgd.fl_wi5_ei5.all.anno')
     # query_eqs_file = open('queryEquations.tsv')
     # display_eqs_file = open('display_eq.tsv', encoding='latin-1')
     html_file = open('table.html',mode="w", encoding='utf-8')
