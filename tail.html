@@ -1,0 +1,23 @@
+</body>
+<script>
+    var els = document.getElementsByClassName('tex');
+    for(var i=0; i<els.length; i++){
+        var kids = els[i].children;
+        var tex = kids[0].innerHTML.replace(/\\\\/g, '\\').replace(/\\begin\{.*?\}/g, '').replace(/\\end\{.*?\}/g, '');
+        try{
+            if(tex.length > 0)
+                katex.render(tex, kids[0])
+            else{
+                kids[1].style.display = 'block';
+                kids[0].style.display = 'none';
+                kids[1].src = "http://www.columbia.edu/~kk3161/"+kids[1].className+".png";
+            }
+        }
+        catch(e){
+            kids[1].style.display = 'block';
+            kids[0].style.display = 'none';
+            kids[1].src = "http://www.columbia.edu/~kk3161/"+kids[1].className+".png";
+        }
+    }
+</script>
+</html>
